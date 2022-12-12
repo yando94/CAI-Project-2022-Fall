@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-from cai.utils.loss_fn import sigmoidF1Loss
+import cai.utils.loss_fn as cailoss
 
 class HPASSCModule(pl.LightningModule):
     def __init__(self, **kwargs):
