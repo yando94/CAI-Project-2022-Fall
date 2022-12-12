@@ -8,30 +8,6 @@ from torch.utils.data import Dataset
 from cai.utils.parser import _parse_label, _parse_images, _parse_transforms
 
 class HPASSDataset(Dataset):
-    # var names
-    _var_id = "ID"
-    _var_label = "Label"
-    _label_names = [
-            "Nucleoplasm",
-            "Nuclear membrane",
-            "Nucleoli",
-            "Nucleoli fibrillar center",
-            "Nuclear speckles",
-            "Nuclear bodies",
-            "Endoplasmic reticulum",
-            "Golgi apparatus",
-            "Intermediate filaments",
-            "Actin filaments",
-            "Microtublules",
-            "Mitotic spindle",
-            "Centrosome",
-            "Plasma membrane",
-            "Mitochondria",
-            "Aggresome",
-            "Cytosol",
-            "Vesicles and punctate cytosolic patterns",
-            "Negative"
-            ]
     _colors = [
             "red",
             "green",

@@ -7,8 +7,8 @@ auto_select_gpus: false
 auto_lr_find: false
 benchmark: false
 deterministic: false
-callbacks:
-check_val_every_n_epoch: 10
+#callbacks:
+check_val_every_n_epoch: 1
 #default_root_dir:
 devices:
   - 0
@@ -17,9 +17,10 @@ fast_dev_run: false
 #gpus: 1 #deprecated, use accelerator='gpu' with devices=x
 gradient_clip_val: 
 limit_train_batches: 1.0
+limit_val_batches: 1.0
 
-log_every_n_steps: 32
-logger: True
+log_every_n_steps: 1
+#logger: True
 max_epochs: 100
 min_epochs: 1
 max_steps: -1

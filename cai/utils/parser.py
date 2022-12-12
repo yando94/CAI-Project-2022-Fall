@@ -10,6 +10,7 @@ from torchvision.transforms.functional import normalize
 def _parse_label(label: str, sep: str = "|", num_classes: int = 19) -> Tensor:
     result = [int(i) for i in label.split(sep)]
     result = torch.eye(num_classes, requires_grad=False)[result].sum(0)
+    result = (result != 0).to(torch.long)
 
     return result
 

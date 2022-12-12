@@ -60,14 +60,14 @@ configs:
       kwargs:
         T_max: 100
         eta_min: 1e-7
+        
 loss_fn:
-  module: nn
-  name: MultiLabelSoftMarginLoss
+  module: cutils
+  name: SmoothMacroF1Loss
   kwargs:
-    weight:
-    size_average:
-    reduce:
-    reduction: "mean"
+    beta: 1.0
+    eta: 0.0
+    threshold: 0.5
 
 log_metrics:
   - name: f1_score

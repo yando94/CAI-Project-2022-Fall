@@ -10,4 +10,4 @@ EXPORTS="PYTHONPATH=$PYTHONPATH"
 EXPORTS="$EXPORTS LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
 EXPORTS="$EXPORTS CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES"
 
-. $HOME/Workspace/CAI/.venv/aidev-3.7/bin/activate && export $EXPORTS && python main.py 
+. $HOME/Workspace/CAI/.venv/aidev-3.7/bin/activate && export $EXPORTS && nohup python main.py &> log.txt &
