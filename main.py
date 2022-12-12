@@ -13,7 +13,7 @@ def main(cfg: DictConfig):
     app = Application(cfg)
 
     logger.info(f"Running Application")
-    app.run()
+    _ = app.run()
 
 if __name__ == "__main__":
-    main()
+        main()

@@ -1,0 +1,55 @@
+dataset:
+  base_dir: "/mnt/yando/Users/yando/hpa-single-cell-image-classification"
+  phase: "train"
+  catalog: "/home/yando/Workspace/CAI/catalog/train.csv"
+  transforms:
+    - module: tv_transforms
+      name: RandomRotation
+      kwargs:
+        degrees: 180.0
+        expand: False
+    - module: tv_transforms
+      name: CenterCrop
+      kwargs:
+        size:
+          - 1500
+          - 1500
+    - module: tv_transforms
+      name: RandomResizedCrop
+      kwargs:
+        size:
+          - 224
+          - 224
+        scale:
+          - 0.25
+          - 1.0
+        ratio:
+          - 1.0
+          - 1.0
+        antialias: True
+    - module: tv_transforms
+      name: Normalize
+      kwargs:
+        mean:
+          - 0.06438801
+          - 0.0441467
+          - 0.03966651
+          - 0.06374957
+        std:
+          - 0.10712028
+          - 0.08619478
+          - 0.11134183
+          - 0.10635688
+dataloader:
+  batch_size: 256
+  shuffle: True
+  sampler:
+  batch_sampler:
+  num_workers: 16
+  collate_fn:
+  pin_memory: True
+  drop_last: False
+  timeout: 0
+  worker_init_fn:
+  prefetch_factor: 1
+  persistent_workers: True

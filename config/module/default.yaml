@@ -1,0 +1,30 @@
+in_channels: 4
+out_channels: 3
+reduce_channel: True
+
+pretrained: true
+vit_config:
+  pretrained_model_name_or_path: "google/vit-base-patch16-224"
+  num_labels: 19
+
+configs:
+    optimizer:
+      module: torch
+      name: SGD
+      kwargs:
+        lr: 1e-3
+        momentum: 0.9
+    scheduler:
+      module: torch
+      name: CosineAnnealingLR
+      kwargs:
+        T_max: 100
+        eta_min: 1e-7
+    kld_weight: 0.1
+loss_fn:
+  name: MultiLabelSoftMarginLoss
+  kwargs:
+    weight:
+    size_average:
+    reduce:
+    reduction: "mean"

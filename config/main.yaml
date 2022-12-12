@@ -1,0 +1,16 @@
+defaults:
+  - module: default
+  - datamodule: default
+  - trainer: default
+  - run: default
+  - _self_
+
+base_dir: /home/yando/NAS01/Users/yando/Experiments/cai/
+
+hydra:
+  run:
+    dir: /home/yando/NAS01/Users/yando/Experiments/cai/outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: /home/yando/NAS01/Users/yando/Experiments/cai/multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweeper:
+    params:
