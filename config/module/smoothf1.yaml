@@ -60,9 +60,9 @@ configs:
       kwargs:
         T_max: 100
         eta_min: 1e-7
-        
+
 loss_fn:
-  module: cutils
+  module: cailoss
   name: SmoothMacroF1Loss
   kwargs:
     beta: 1.0
