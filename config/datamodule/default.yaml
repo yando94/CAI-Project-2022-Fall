@@ -1,3 +1,6 @@
+use_wr_sampler: True
+num_samples: 64
+
 dataset:
   base_dir: "/mnt/yando/Users/yando/hpa-single-cell-image-classification"
   phase: "train"
@@ -42,10 +45,9 @@ dataset:
           - 0.10635688
 dataloader:
   batch_size: 256
-  shuffle: True
-  sampler:
-  batch_sampler:
-  num_workers: 17
+  #shuffle: True
+  #batch_sampler:
+  num_workers: 16
   collate_fn:
   pin_memory: True
   drop_last: True

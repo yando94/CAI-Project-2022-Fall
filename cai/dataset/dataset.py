@@ -24,9 +24,9 @@ class HPASSDataset(Dataset):
     def __init__(self, **kwargs):
         self.base_dir = kwargs.get("base_dir")
         self.catalog = kwargs.get("catalog")
-        data = pd.read_csv(os.path.join(self.base_dir, self.catalog))
-        self.image_id = data["ID"]
-        self.label = data["Label"].apply(_parse_label)
+        self.data = pd.read_csv(os.path.join(self.base_dir, self.catalog))
+        self.image_id = self.data["ID"]
+        self.label = self.data["Label"].apply(_parse_label)
         self.phase = kwargs.get("phase")
         self.transform = _parse_transforms(kwargs.get("transforms"))
 

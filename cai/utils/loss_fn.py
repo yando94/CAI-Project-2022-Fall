@@ -7,7 +7,7 @@ class SmoothMacroF1Loss(nn.Module):
         self.beta = beta
         self.eta = eta
         self.threshold = threshold
-        self.sigmoid = lambda x : torch.special.expit(self.beta * x + self.eta)
+        self.sigmoid = lambda x : torch.special.expit(self.beta * x - self.eta)
 
     def forward(self, logits_, labels):
         y_hat = self.sigmoid(logits_)
