@@ -23,7 +23,7 @@ class HPASSCDataModule(pl.LightningDataModule):
 
     def prepare_data(self, **kwargs):
         self.dataset = HPASSDataset(**self.dataset_cfg)
-        self.train_dataset, self.val_dataset = random_split(self.dataset, [0.8, 0.2])
+        self.train_dataset, self.val_dataset = random_split(self.dataset, [0.8, 0.2], torch.Generator().manual_seed(42))
 
         if self.use_wr_sampler:
             self.dataset.data["LabelTensor"] = self.dataset.data["Label"].apply(_parse_label)

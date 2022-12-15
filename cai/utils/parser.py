@@ -1,5 +1,5 @@
 import torch
-
+import torch.nn as nn
 
 from torch import Tensor
 from PIL import Image
